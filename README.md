@@ -10,7 +10,7 @@
 #### Установка
 1. Склонируйте репозиторий:
    ```bash
-   git clone [<repository_url>](https://github.com/LestatDamned/CLI-Book-Manager.git)
+   git clone https://github.com/LestatDamned/CLI-Book-Manager.git
    ```
 2. Убедитесь, что Python 3.10+ установлен.
 
