@@ -2,11 +2,15 @@ from managers import BookManager
 
 
 class Command:
+    """Базовый класс для реализации команды."""
+
     def execute(self):
         raise NotImplementedError("Метод execute() должен быть реализован")
 
 
 class DisplayBooksCommand(Command):
+    """Класс команды для отображения всех книг."""
+
     def __init__(self, receiver: BookManager):
         self.receiver = receiver
 
@@ -16,6 +20,8 @@ class DisplayBooksCommand(Command):
 
 
 class AddBookCommand(Command):
+    """Класс команды для добавления книги."""
+
     def __init__(self, receiver: BookManager):
         self.receiver = receiver
 
@@ -28,6 +34,8 @@ class AddBookCommand(Command):
 
 
 class DeleteBookCommand(Command):
+    """Класс команды для удаления книги."""
+
     def __init__(self, receiver: BookManager):
         self.receiver = receiver
 
@@ -38,6 +46,8 @@ class DeleteBookCommand(Command):
 
 
 class SearchBookCommand(Command):
+    """Класс команды для поиска книг."""
+
     def __init__(self, receiver: BookManager):
         self.receiver = receiver
 
@@ -62,6 +72,8 @@ class SearchBookCommand(Command):
 
 
 class ChangeStatusCommand(Command):
+    """Класс команды для изменения статуса книги."""
+
     def __init__(self, receiver: BookManager):
         self.receiver = receiver
 
@@ -83,13 +95,18 @@ class ChangeStatusCommand(Command):
 
 
 class Menu:
+    """Класс для управления меню программы и выбора команд."""
+
     def __init__(self):
-        self.commands = {}
+        self.commands = {}  # Словарь зарегистрированных команд (ключ - номер в меню, значение - команда).
 
     def register_command(self, key, command):
+        """Регистрирует новую команду в меню."""
         self.commands[key] = command
 
     def show_menu(self):
+        """Выводит меню, обрабатывает выбор пользователя и выполняет соответствующую команду."""
+
         while True:
             print("""
         [1] Отобразить все книги
@@ -111,8 +128,10 @@ class Menu:
                     print("Неверный выбор")
 
     def ask_to_show_menu(self, command):
+        """Позволяет вернуться в главное меню, повторить действие или выйти из программы."""
+
         while True:
-            go_back_choice = input("\n[1] Вернуться в главное меню | " 
+            go_back_choice = input("\n[1] Вернуться в главное меню | "
                                    "[2] Повторить последнее действие | "
                                    "[0] Выйти из программы. \n")
             match go_back_choice:
