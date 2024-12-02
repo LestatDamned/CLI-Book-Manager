@@ -9,9 +9,9 @@
 
 #### Установка
 1. Склонируйте репозиторий:
-   ```bash
-   git clone https://github.com/LestatDamned/CLI-Book-Manager.git
-   ```
+```bash
+git clone https://github.com/LestatDamned/CLI-Book-Manager.git
+```
 2. Убедитесь, что Python 3.10+ установлен.
 
 
@@ -21,6 +21,25 @@
 ```bash
 python main.py
 ```
+---
+
+#### Тестирование
+
+Проект включает модульные тесты для проверки функциональности основных классов и методов. Тесты написаны с использованием библиотеки unittest.
+Выполните команду:
+
+```bash
+python -m unittest tests.py
+```
+
+Что покрывают тесты:
+
+- JSONManager:
+   Проверка чтения и записи JSON-файлов.
+- IDManager:
+     Генерация уникальных ID.
+- BookManager:
+     Добавление, удаление, поиск книг и изменение их статуса.
 
 ---
 
